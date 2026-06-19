@@ -7,11 +7,10 @@
 - [Tools Used](#tools-used)
 - [Project Structure](#project-structure)
 - [Data Cleaning & Processing](#data-cleaning--processing)
-- [Analysis Summary](#analysis-summary)
+- [Analysis](#analysis)
 - [Key Findings](#key-findings)
 - [Recommendations](#recommendations)
 - [Dashboard](#dashboard)
-- [How to Reproduce](#how-to-reproduce)
 ---
 
 
