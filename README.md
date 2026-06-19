@@ -169,8 +169,8 @@ Since casual riders prefer electric bikes, offer a **membership tier with discou
 ## Dashboard
  
 View the interactive Tableau dashboard on Tableau and PDF File
-[View in Tableau](bike-trips)
-[View Dashboard in PDF](bike-trips-analysis)
+[View in Tableau](bike-trips.tbw)
+[View Dashboard in PDF](Tableau-bike-trips-Dashboard.pdf)
  
 **Dashboard A — Cyclistic Bike Share — Core Analysis Dashboar**
 - Rides by Day of Week
