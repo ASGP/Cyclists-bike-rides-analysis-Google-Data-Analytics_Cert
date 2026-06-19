@@ -77,57 +77,83 @@ Table Structure as follows
 ## Data Cleaning & Processing
  
 All cleaning was performed in **Google BigQuery** using Standard SQL.
-SQL Queries script [bigquery-sql.sql]
+[SQL Queries script](bigquery-sql.sql)
 
-## 📊 Analysis Summary
- 
-Exploratory data analysis was performed in **Google Colab** using Python (Pandas, Matplotlib). The analysis covered 5 key areas:
- 
+## Analysis
+
 ### 1. Ride Duration
-- Casual riders take significantly **longer rides** than members on average
-- Members cluster around short, consistent ride durations (5–15 minutes)
-- Casuals show a wider distribution, with many rides in the 20–40 minute range
-- This suggests members use bikes for quick, purposeful commutes while casuals use them for leisure
+- Casual riders take significantly longer rides than members on average.
+- The average ride duration for casual riders is approximately 22 minutes, compared to about 12 minutes for members.
+- Members cluster around short, consistent ride durations, while casual riders show a much wider distribution.
+- Casual riders have a greater proportion of rides lasting 20–40 minutes or longer.
+- This suggests that members primarily use Cyclistic bikes for quick, purposeful trips, whereas casual riders use them more for leisure and exploration.
+
 ### 2. Weekly Usage
-- Members ride more on **weekdays** (Monday–Friday), peaking mid-week
-- Casual riders peak on **weekends** (Saturday and Sunday)
-- This pattern strongly supports the hypothesis that members are commuters and casuals are leisure/tourist riders
+- Members ride more frequently on weekdays (Monday–Friday), with ridership peaking during the middle of the work week.
+- Casual riders show the highest activity on weekends, especially Saturdays.
+- Weekend ridership among casual users is significantly higher than weekday usage.
+- Members maintain relatively consistent usage throughout the week.
+- This pattern strongly supports the hypothesis that members are regular commuters while casual riders are recreational or tourist users.
+
 ### 3. Monthly & Seasonal Trends
-- Both groups peak in **summer months** (July–August) and drop in winter (December–January)
-- Casual riders show a steeper seasonal curve — their ridership drops more dramatically in winter
-- Members maintain relatively more consistent ridership year-round (commuting need persists in winter)
+- Both rider groups experience increased ridership during warmer months (Jul - Oct) and decreased ridership during winter (Nov - Feb).
+- Ridership peaks during July and August and reaches its lowest levels during December and January.
+- Casual riders exhibit a much stronger seasonal pattern, with substantial increases during summer and sharp declines during winter.
+- Member ridership remains comparatively stable throughout the year.
+- These trends indicate that casual riders are more influenced by weather and seasonal outdoor activities, while members continue riding due to regular transportation needs.
+
 ### 4. Bike Type Preference
-- **Classic bikes** are the most used overall
-- Members strongly favor **classic bikes**
-- Casuals show relatively higher usage of **electric bikes** compared to members
-- Docked bikes are a small fraction of total rides
+- Electric bikes are the most frequently used bike type among both rider groups.
+- Members generate the highest number of rides on both electric and classic bikes.
+- Casual riders show relatively stronger adoption of electric bikes, likely due to convenience and ease of use.
+- Classic bikes remain popular, particularly among members.
+- Docked bikes account for only a small proportion of total rides.
+- The popularity of electric bikes suggests that ease of travel and reduced physical effort are important factors for riders.
+
 ### 5. Time of Day
-- Members show a clear **double peak**: 8 AM and 5 PM (classic commute pattern)
-- Casuals show a **single afternoon peak**: gradually rising from noon, peaking around 3–5 PM
-- During weekday commute hours (6–9 AM, 4–7 PM), members dominate ridership
-- This is the strongest evidence that members primarily use Cyclistic for commuting
-> Full analysis notebook: [`python/cyclistic_analysis.ipynb`](python/cyclistic_analysis.ipynb)
- 
----
- 
-## 🔍 Key Findings
- 
-1. **Members are commuters, casuals are leisure riders** — evidenced by weekday vs weekend patterns, double vs single daily peak, and shorter vs longer ride durations
-2. **Casual riders take 2x longer rides than members** — suggesting they extract more "per-ride value" from the system but ride less frequently
-3. **Weekend is casual territory** — casual rides spike significantly on Saturday and Sunday while member rides remain steady or drop
-4. **Electric bikes are more popular with casuals** — casuals may prefer the lower effort of electric bikes for longer leisure rides
-5. **Summer is the best conversion opportunity** — casual ridership peaks in summer, creating a natural window for membership promotions
-6. **Top start stations differ by rider type** — certain stations near tourist areas and parks are heavily casual-dominated, while stations near business districts are member-dominated
----
- 
-## 💡 Recommendations
+- Members display a clear double-peak riding pattern during commute hours:
+  - Morning peak around 7–9 AM
+  - Evening peak around 4–6 PM
+- Casual riders show a gradual increase in activity throughout the day, peaking during the afternoon and early evening.
+- During weekday commute periods, members significantly outnumber casual riders.
+- This is one of the strongest indicators that members primarily use Cyclistic bikes for commuting purposes.
+
+### 6. Customer Composition
+- Members account for approximately 64% of all rides, making them the largest customer segment.
+- Casual riders contribute roughly 36% of total rides.
+- Although members generate more rides overall, casual riders represent a significant opportunity for membership conversion.
+- Increasing the conversion rate of casual riders could substantially increase recurring revenue.
+
+### 7. Commute-Hour Usage
+- During weekday morning and evening commute hours, member ridership greatly exceeds casual ridership.
+- Members dominate usage between 6–9 AM and 4–7 PM.
+- Casual riders show lower activity during these periods and tend to ride later in the day.
+- This further reinforces the conclusion that members rely on Cyclistic as a transportation solution rather than purely recreational service.
+
+### 8. Popular Station Analysis
+- Several of the most frequently used stations are located near tourist attractions, parks, waterfronts, and recreational areas.
+- Casual riders are more likely to start or end rides near these destinations.
+- Popular leisure-oriented stations indicate strong demand from tourists and occasional riders.
+- Understanding station popularity can help Cyclistic target promotional campaigns and membership offers in high-traffic recreational areas.
+
+## Key Findings
+1. Casual riders take longer rides than members and are more likely to use Cyclistic for leisure activities.
+2. Members primarily ride during weekday commute hours, while casual riders prefer weekends and afternoons.
+3. Casual ridership is highly seasonal and strongly influenced by weather conditions.
+4. Electric bikes are the most popular bike type across both customer segments.
+5. Members account for the majority of rides and dominate commuting periods.
+6. Popular stations are concentrated around recreational and tourist locations, highlighting the importance of casual riders in leisure-oriented areas.
+
+[View Notebook](bike_trips.ipynb)
+
+## Recommendations
  
 Based on the analysis, here are the top 3 recommendations for converting casual riders into annual members:
  
 ### Recommendation 1: Weekend & Seasonal Membership Promotions
 **Finding it addresses:** Casual riders peak on weekends and in summer
  
-Since casual riders are most active on weekends and during summer months, Cyclistic should launch **targeted weekend membership trials** and **summer conversion campaigns** (May–August). A discounted "Summer Pass" or "Weekend Membership" could lower the commitment barrier for casual riders who don't need weekday access.
+Since casual riders are most active on weekends and during summer months, company should launch **targeted weekend membership trials** and **summer conversion campaigns** (May–August). A discounted "Summer Pass" or "Weekend Membership" could lower the commitment barrier for casual riders who don't need weekday access.
  
 ### Recommendation 2: Targeted Digital Marketing at High-Casual Stations
 **Finding it addresses:** Casual riders cluster at specific stations near tourist/leisure areas
@@ -138,4 +164,28 @@ Deploy **in-app notifications and digital ads** at the top casual-dominated stat
 **Finding it addresses:** Casuals show higher electric bike usage
  
 Since casual riders prefer electric bikes, offer a **membership tier with discounted or unlimited electric bike access**. This creates a direct, tangible benefit that appeals specifically to casual rider behavior — converting them with something they already value rather than pushing a benefit (e.g. commuter perks) that doesn't match their usage pattern.
+ 
+---
 
+## Dashboard
+ 
+View the interactive Tableau dashboard on Tableau and PDF File
+[View in Tableau](bike-trips)
+[View Dashboard in PDF](bike-trips-analysis)
+ 
+**Dashboard A — Cyclistic Bike Share — Core Analysis Dashboar**
+- Rides by Day of Week
+- Average Ride Duration
+- Monthly Ride Trends
+- Bike Type Preference
+**Dashboard B — Cyclistic Bike Share — Deep Dive Analysis**
+- Peak Hours by Member Type
+- Bike Type During Commute Hours
+- Ride Duration Distribution
+- Weekend vs Weekday Comparison
+---
+
+## Author
+ 
+**A S G Punchihewa**
+---
