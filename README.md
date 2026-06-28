@@ -129,11 +129,6 @@ All cleaning was performed in **Google BigQuery** using Standard SQL.
 - Casual riders show lower activity during these periods and tend to ride later in the day.
 - This further reinforces the conclusion that members rely on Cyclistic as a transportation solution rather than purely recreational service.
 
-### 8. Popular Station Analysis
-- Several of the most frequently used stations are located near tourist attractions, parks, waterfronts, and recreational areas.
-- Casual riders are more likely to start or end rides near these destinations.
-- Popular leisure-oriented stations indicate strong demand from tourists and occasional riders.
-- Understanding station popularity can help Cyclistic target promotional campaigns and membership offers in high-traffic recreational areas.
 
 ## Key Findings
 1. Casual riders take longer rides than members and are more likely to use Cyclistic for leisure activities.
